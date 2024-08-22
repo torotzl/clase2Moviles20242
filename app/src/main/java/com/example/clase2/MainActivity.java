@@ -2,6 +2,7 @@ package com.example.clase2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
         hola = findViewById(R.id.btnHola);
         mundo = findViewById(R.id.btnMundo);
 
+        hola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Log.d(TAG,"eSTOY EN EL BOTON");
+
+                Intent pasarDatos = new Intent(MainActivity.this, MainActivity2.class);
+                pasarDatos.putExtra("Nombre","Juan");
+                pasarDatos.putExtra("Edad",20);
+                startActivity(pasarDatos);
+
+            }
+        });
 
 
     }
@@ -38,15 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.d(TAG,"Estoy en el onStart");
-        hola.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                usuario.setText("Presionaste el botón Hola");
-                nombreUsuario= String.valueOf(ingresarUsuario.getText());
-
-            }
-        });
 
         mundo.setOnClickListener(new View.OnClickListener() {
             @Override
