@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Persona persona;
     EditText ingresarUsuario;
     TextView usuario;
     Button hola,mundo;
@@ -37,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d(TAG,"eSTOY EN EL BOTON");
 
+                persona = new Persona(1128444046, (byte) 20, "Estiven", "Toro Henao");
+
                 Intent pasarDatos = new Intent(MainActivity.this, MainActivity2.class);
-                pasarDatos.putExtra("Nombre","Juan");
-                pasarDatos.putExtra("Edad",20);
+                pasarDatos.putExtra("Nombre",persona.nombre);
                 startActivity(pasarDatos);
 
             }

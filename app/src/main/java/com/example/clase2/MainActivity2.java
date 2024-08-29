@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    TextView nombre, edad;
+    TextView nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +16,11 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         nombre = findViewById(R.id.textoUno);
-        edad = findViewById(R.id.textoDos);
 
         Intent recibirDatos = getIntent();
 
         String name = recibirDatos.getStringExtra("Nombre");
-        int age  = recibirDatos.getIntExtra("Edad",0);
 
         nombre.setText(name);
-        edad.setText(age);
     }
 }
